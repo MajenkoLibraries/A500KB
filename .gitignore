@@ -1,0 +1,15 @@
+documentation/Makefile
+documentation/annotated.tex
+documentation/classA500KB.tex
+documentation/doxygen.sty
+documentation/index.tex
+documentation/md_LICENSE.tex
+documentation/refman.aux
+documentation/refman.idx
+documentation/refman.ilg
+documentation/refman.ind
+documentation/refman.log
+documentation/refman.out
+documentation/refman.tex
+documentation/refman.toc
+
