@@ -36,6 +36,8 @@ class A500KB {
         uint8_t _clock;
         uint8_t _data;
         uint8_t _reset;
+        uint8_t _drive; 
+        uint8_t _power;
         bool _clockState;
         bool _dataState;
         uint32_t _lastClock;
@@ -47,12 +49,19 @@ class A500KB {
     public:
         /*! Constructor to make a new A500KB object.  It takes
          *  (and stores for later use) the clock, data and reset
-         *  pins the A500 keyboard is connected to.
+         *  pins the A500 keyboard is connected to.  Can also take
+         *  two additional pins to control the two LEDs on the keyboard.
+         *
+         *  Note: controlling the LEDs requires a 5V logic level output,
+         *  so will only work with a 5V Arduino or with logic level shifting
+         *  added to your system.
          */
-        A500KB(uint8_t clock, uint8_t data, uint8_t reset) : 
+        A500KB(uint8_t clock, uint8_t data, uint8_t reset, uint8_t drive = 255, uint8_t power = 255) : 
             _clock(clock), 
             _data(data), 
             _reset(reset), 
+            _drive(drive),
+            _power(power),
             _clockState(true),
             _lastClock(0)
         {}
@@ -74,6 +83,16 @@ class A500KB {
          *  for Keyboard.press() or Keyboard.release().
          */
         uint8_t translate(int scancode);
+
+        /*! Control the POWER led.  Takes a HIGH or LOW for ON or OFF.
+         */
+        void power(uint8_t state);
+
+        /*! Control the DRIVE led.  Takes a HIGH or LOW for ON or OFF.
+         */
+        void drive(uint8_t state);
+
+        
 };
 
 #endif

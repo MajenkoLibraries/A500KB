@@ -34,6 +34,13 @@ void A500KB::begin() {
     pinMode(_clock, INPUT);
     pinMode(_data, INPUT);
     pinMode(_reset, OUTPUT);
+    if (_drive != 255) {
+        pinMode(_drive, OUTPUT);
+    }
+    if (_power != 255) {
+        pinMode(_power, OUTPUT);
+    }
+
     digitalWrite(_reset, HIGH);
     delay(10);
     digitalWrite(_reset, LOW);
@@ -96,6 +103,18 @@ uint8_t A500KB::translate(int scancode) {
     }
     scancode &= 0x7F;
     return _keys[scancode];
+}
+
+void A500KB::power(uint8_t state) {
+    if (_power != 255) {
+        digitalWrite(_power, state);
+    }
+}
+
+void A500KB::drive(uint8_t state) {
+    if (_drive != 255) {
+        digitalWrite(_drive, state);
+    }
 }
 
 
