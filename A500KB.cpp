@@ -33,7 +33,7 @@
 void A500KB::begin() {
     pinMode(_clock, INPUT);
     pinMode(_data, INPUT);
-    pinMode(_reset, OUTPUT);
+    pinMode(_reset, INPUT);
     if (_drive != 255) {
         pinMode(_drive, OUTPUT);
     }
@@ -51,6 +51,16 @@ void A500KB::begin() {
 int A500KB::scan() {
     bool cs = digitalRead(_clock);
     bool ds = digitalRead(_data);
+    bool rs = digitalRead(_reset);
+
+    if (rs != _resetState) {
+        _resetState = rs;
+        if (_resetState == LOW) {
+            if (_onReset != NULL) {
+                _onReset();
+            }
+        }
+    }
 
     // Start sequence
     if (ds != _dataState && _lastClock == 0) {
@@ -115,6 +125,10 @@ void A500KB::drive(uint8_t state) {
     if (_drive != 255) {
         digitalWrite(_drive, state);
     }
+}
+
+void A500KB::onReset(void (*func)()) {
+    _onReset = func;
 }
 
 

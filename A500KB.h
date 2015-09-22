@@ -40,11 +40,12 @@ class A500KB {
         uint8_t _power;
         bool _clockState;
         bool _dataState;
+        bool _resetState;
         uint32_t _lastClock;
         uint8_t _val;
         uint8_t _clocks;
         static const uint8_t _keys[128];
-
+        void (*_onReset)();
         
     public:
         /*! Constructor to make a new A500KB object.  It takes
@@ -63,6 +64,8 @@ class A500KB {
             _drive(drive),
             _power(power),
             _clockState(true),
+            _dataState(true),
+            _resetState(true),
             _lastClock(0)
         {}
 
@@ -92,7 +95,16 @@ class A500KB {
          */
         void drive(uint8_t state);
 
-        
+        /*! Register a reset event callback.  Prototype is:
+         *
+         *      void myResetCallback();
+         *
+         *  Note that the keypress events for the individual CTRL-A-A keys
+         *  will have been sent, and you may not get the release events
+         *  so you will have to assume that the release events will arrive
+         *  and act as if they had already arrived.
+         */
+         void onReset(void (*func)());
 };
 
 #endif

@@ -37,9 +37,17 @@
 
 A500KB kb(A3, A4, A5);
 
+void doReset() {
+    Keyboard.release(KEY_LEFT_CTRL);
+    Keyboard.release(KEY_LEFT_GUI);
+    Keyboard.release(KEY_RIGHT_GUI);
+    Keyboard.println("Reset");
+}
+
 void setup() {
     Keyboard.begin();
     kb.begin();
+    kb.onReset(doReset);
 }
 
 void loop() {
@@ -49,7 +57,17 @@ void loop() {
         if (key > 0) {
             if ((s & 0x80) == 0x80) {
                 Keyboard.press(key);
+                // Caps lock is toggled by the keyboard, so we need to
+                // simulate a press and release for it.
+                if (key == KEY_CAPS_LOCK) {
+                    Keyboard.release(key);
+                }
             } else {
+                // Caps lock is toggled by the keyboard, so we need to
+                // simulate a press and release for it.
+                if (key == KEY_CAPS_LOCK) {
+                    Keyboard.press(key);
+                }
                 Keyboard.release(key);
             }
         }
