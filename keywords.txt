@@ -1,0 +1,4 @@
+A500KB	KEYWORD1
+scan	KEYWORD2
+translate	KEYWORD2
+begin	KEYWORD2
