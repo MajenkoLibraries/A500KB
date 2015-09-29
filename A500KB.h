@@ -31,6 +31,111 @@
 
 #include <Arduino.h>
 
+// Amiga keyboard scancodes
+
+#define AK_KP0          7
+#define AK_KP1          35
+#define AK_KP2          67
+#define AK_KP3          3
+#define AK_KP4          37
+#define AK_KP5          69
+#define AK_KP6          5
+#define AK_KP7          33
+#define AK_KP8          65
+#define AK_KP9          1
+#define AK_KP_OPENPAREN 82
+#define AK_KP_CLOSEPAREN 16
+#define AK_KP_SLASH     98
+#define AK_KP_ASTERISK  34
+#define AK_KP_MINUS     86
+#define AK_KP_PLUS      66
+#define AK_KP_FULLSTOP  97
+#define AK_KP_ENTER     30
+
+#define AK_UP           102
+#define AK_DOWN         38
+#define AK_LEFT         6
+#define AK_RIGHT        70
+
+#define AK_HELP         2
+#define AK_ESC          46
+#define AK_BACKSPACE    62
+#define AK_DEL          78
+#define AK_TAB          94
+
+#define AK_CTRL         28
+#define AK_LSHIFT       124
+#define AK_LALT         108
+#define AK_LAMIGA       76
+#define AK_RSHIFT       60
+#define AK_RALT         44
+#define AK_RAMIGA       12
+#define AK_CAPSLOCK     92
+
+#define AK_F1           122
+#define AK_F2           58
+#define AK_F3           90
+#define AK_F4           26
+#define AK_F5           106
+#define AK_F6           42
+#define AK_F7           74
+#define AK_F8           10
+#define AK_F9           114
+#define AK_F10          50
+
+#define AK_0            87
+#define AK_1            63
+#define AK_2            95
+#define AK_3            31
+#define AK_4            111
+#define AK_5            47
+#define AK_6            79
+#define AK_7            15
+#define AK_8            119
+#define AK_9            55
+
+#define AK_A            125
+#define AK_B            41
+#define AK_C            25
+#define AK_D            93
+#define AK_E            91
+#define AK_F            29
+#define AK_G            109
+#define AK_H            45
+#define AK_I            11
+#define AK_J            77
+#define AK_K            13
+#define AK_L            117
+#define AK_M            9
+#define AK_N            73
+#define AK_O            115
+#define AK_P            51
+#define AK_Q            123
+#define AK_R            27
+#define AK_S            61
+#define AK_T            107
+#define AK_U            75
+#define AK_V            105
+#define AK_W            59
+#define AK_X            89
+#define AK_Y            43
+#define AK_Z            57
+
+#define AK_OPENBRACKET  83
+#define AK_CLOSEBRACKET 19
+#define AK_MINUS        23
+#define AK_BACKSLASH    39
+#define AK_FULLSTOP     49
+#define AK_SEMICOLON    53
+#define AK_SLASH        81
+#define AK_APOSTROPHE   85
+#define AK_ACCENT       127
+#define AK_COMMA        113
+#define AK_EQUALS       103
+
+#define AK_SPACE        126
+#define AK_RETURN       110
+
 class A500KB {
     private:
         uint8_t _clock;
