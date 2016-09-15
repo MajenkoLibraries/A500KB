@@ -1,0 +1,13 @@
+{
+  "name": "A500KB",
+  "keywords": "amiga, keyboard, input",
+  "description": "Amika 500 keyboard interface library for chipKIT",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/MajenkoLibraries/A500KB"
+  },
+  "version": "1.0.12",
+  "frameworks": "arduino",
+  "platforms": "microchippic32"
+}
