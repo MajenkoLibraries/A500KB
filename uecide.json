@@ -1,0 +1,19 @@
+{
+    "name": "A500KB",
+    "provides": "A500KB.h",
+    "license": "LICENSE.md",
+    "readme": "README.md",
+    "description": "Driver for the Amiga 500 keyboard interface",
+    "category": "Communications",
+    "subcategory": "Serial",
+    "maintainer": "Matt Jenkins <matt@majenko.co.uk>",
+    "version": "1.1.1",
+    "family": "all",
+    "core": "all",
+    "install": {
+        "examples": "/",
+        "A500KB.cpp": "/",
+        "A500KB.h": "/",
+        "keywords.txt": "/"
+    }
+}
